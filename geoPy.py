@@ -5,7 +5,7 @@ import io
 geolocator = Nominatim(user_agent="example app")
 
 df = pd.read_csv("/Users/liutianrui/Downloads/bpsData.csv")
-# print(df.head())
+print(df.head())
 
 df["loc"] = df["kecnm14"].apply(geolocator.geocode)
 df["point"]= df["loc"].apply(lambda loc: tuple(loc.point) if loc else None)
